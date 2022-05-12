@@ -16,6 +16,8 @@ This is a simple UNIX command interperter based on bash an sh, done as a group b
 
 #Authors & Copyrights
 ---------------------------------------------------------
-- Jesica Ogindo <jesica-akeyo>
-- Adam Keino <adamkeino>
+- Jesica Ogindo \<jesica-akeyo\>
+- Adam Keino \<adamkeino\>
+
 #More infomation
+--------------------------------------------------------
