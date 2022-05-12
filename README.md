@@ -1,8 +1,8 @@
-#Simple Shell Project
+# Simple Shell Project
 -------------------------------------------------------
 This is a simple UNIX command interperter based on bash an sh, done as a group by Adam Keino and Jesica Ogindo
 
-#Overview
+# Overview
 -------------------------------------------------------
 #Invocation
 #Environment
@@ -14,10 +14,10 @@ This is a simple UNIX command interperter based on bash an sh, done as a group b
 #Operators
 #Builtin Commands
 
-#Authors & Copyrights
+# Authors & Copyrights
 ---------------------------------------------------------
 - Jesica Ogindo \<jesica-akeyo\>
 - Adam Keino \<adamkeino\>
 
-#More infomation
+# More infomation
 --------------------------------------------------------
