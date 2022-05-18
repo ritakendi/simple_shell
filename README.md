@@ -58,13 +58,9 @@ _exit.c --------------------------- handles if user types exit or exit(value)
 ## Builtins
 
 - ***exit** - exits shell (Usage: exit [status])
-- 
 - ***env** - prints environmental variables (Usage: env)
-- 
 - ***setenv** - creates or modifies an environmental variable (Usage: setenv name value)
-- 
 - ***unsetenv** - removes an envrionmental variable (Usage: unsetenv name value)
-- 
 - ***cd** - changes directories (Usage: cd [-][~][path])
 
 ## Functions and system calls used
@@ -73,7 +69,9 @@ _exit.c --------------------------- handles if user types exit or exit(value)
 ## Description of what each file shows:
 
 *man_3_shell ------------------------ custom manpage for our simple shell
+
 *main.c ----------------------------- holds entrance into program
+
 *shell.h ---------------------------- holds prototypes of functions spread across all files
 
 # Authors & Copyrights
