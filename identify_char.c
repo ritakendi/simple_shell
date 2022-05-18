@@ -62,14 +62,10 @@ int compareEnv(char *s1, char *s2)
 }
 
 /**
-
  * identify_string - identyfy keyboard input.
-
  * @parameter: call prompt from another function (prompt)
-
  * Return: str
-
- **/
+ */
 char **identify_string(char *parameter)
 {
 	char **buf = malloc(1024 * sizeof(char *));

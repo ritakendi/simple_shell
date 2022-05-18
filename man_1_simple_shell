@@ -1,4 +1,4 @@
-.TH SHELL 1 "27 November 2019" GNU "Shell man page"
+.TH SHELL 1 "18 May 2022" GNU "Shell man page"
 .SH NAME
 .B hsh
 - Command line interpreter (shell)
@@ -75,4 +75,4 @@ There is no known bugs at the moment.
 .br
  hsh main.c shell.c
 .SH AUTHORS
-Mariem Matri, Inès Chokri
+Rita Kendi, Laura Chebet
