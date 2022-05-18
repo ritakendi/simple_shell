@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * ctrl_c - ignore Ctrl-C input and prints prompt again
+ * ctrl_c - task 1 Ctrl-C input and prints prompt again
  * @n: takes in int from signal
  */
 void ctrl_c(int n)
 {
-	(void)n;
-	write(STDOUT_FILENO, "\n#cisfun$ ", 10);
+	 (void)n;
+	 write(STDOUT_FILENO, "\n$ ", 3);
 }
 
 /**
@@ -99,7 +99,7 @@ int prompt(char **en)
 	do {
 		command_line_no++;
 		if (isatty(STDIN_FILENO)) /* reprompt if in interactive shell */
-			write(STDOUT_FILENO, "#cisfun$ ", 9);
+			write(STDOUT_FILENO, "$ ", 2);
 		else
 			non_interactive(env);
 		signal(SIGINT, ctrl_c); /* makes ctrl+c not work */
