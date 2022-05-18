@@ -15,7 +15,7 @@ char **tokenize(char *buffer, char *delimiter)
 	if (buffer == NULL)
 		return (NULL);
 	tokens = malloc(sizeof(char *) * mcount);
-	if (token == NULL)
+	if (tokens == NULL)
 	{
 		perror("Fatal Error");
 		return (NULL);
