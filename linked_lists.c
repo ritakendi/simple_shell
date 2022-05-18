@@ -1,66 +1,127 @@
 #include "shell.h"
 
 /**
- * numlen - counts number of 0s in a tens power number
- * @n: number
- * Return: returns count of digits
+ * print_list - _print linked list
+ * @h: linked list
+ * Return: size of linked list
  */
-int numlen(int n)
+size_t print_list(list_t *h)
 {
+	list_t *c_list = h;
 	int count = 0;
-	int num = n;
+	int c = 0;
 
-	while (num > 9 || num < -9)
+	if (h == NULL)
+		return (0);
+	while (c_list != NULL)
 	{
-		num /= 10;
+		if (c_list->var == NULL)
+		{
+			write(STDOUT_FILENO, "(nil)", 5);
+			write(STDOUT_FILENO, "\n", 1);
+		}
+		else
+		{
+			c = 0;
+			while ((c_list->var)[c] != '\0')
+				c++;
+			write(STDOUT_FILENO, c_list->var, c);
+			write(STDOUT_FILENO, "\n", 1);
+		}
+		c_list = c_list->next;
 		count++;
 	}
 	return (count);
 }
+
 /**
- * int_to_string - turns an int into a string
- * @number: int
- * Return: returns the int as a string. returns NULL if failed
+ * add_end_node - add node to end of linked list
+ * @head: pointer to head of linked list
+ * @str: data to new node
+ * Return: pointer to new linked list
  */
-
-char *int_to_string(int number)
+list_t *add_end_node(list_t **head, char *str)
 {
-	int digits, tens, i = 0, t = 0, x;
-	char *res;
+	list_t *new;
+	list_t *holder;
 
-	digits = number;
-	tens = 1;
-
-	if (number < 0)
-		t = 1;
-	res = malloc(sizeof(char) * (numlen(digits) + 2 + t));
-	if (res == NULL)
+	if (head == NULL || str == NULL)
+		return (NULL); /* check if address of head is null */
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
 		return (NULL);
-	if (number < 0)
+
+	new->var = _strdup(str);
+	new->next = NULL;
+
+	holder = *head;
+	if (holder != NULL)
 	{
-		res[i] = '-';
-		i++;
-	}
-	for (x = 0; digits > 9 || digits < -9; x++)
-	{
-		digits /= 10;
-		tens *= 10;
-	}
-	for (digits = number; x >= 0; x--)
-	{
-		if (digits < 0)
+		while (holder->next != NULL)
 		{
-			res[i] = (digits / tens) * -1 + '0';
-			i++;
+			holder = holder->next;
 		}
-		else
-		{
-			res[i] = (digits / tens) + '0';
-			i++;
-		}
-		digits %= tens;
-		tens /= 10;
+		holder->next = new;
 	}
-	res[i] = '\0';
-	return (res);
+	else
+	{
+		*head = new;
+	}
+	return (*head);
+}
+
+/**
+ * delete_nodeint_at_index - removing node at index
+ * @head: input head address
+ * @index: input index
+ * Return: 1 if success, -1 if fail
+ */
+int delete_nodeint_at_index(list_t **head, int index)
+{
+	list_t *n_head;
+	list_t *holder;
+	int count = 0;
+
+	if (*head == NULL)
+		return (-1);
+	if (index == 0)
+	{
+		holder = (*head)->next;
+		free((*head)->var);
+		free(*head);
+		*head = holder;
+		return (1);
+	}
+	count = 1;
+	n_head = *head;
+	while (count < index)
+	{
+		if (n_head == NULL)
+			return (-1);
+		n_head = n_head->next;
+		count++;
+	}
+	holder = n_head->next;
+	n_head->next = holder->next;
+	free(holder->var);
+	free(holder);
+	return (1);
+}
+
+/**
+ * free_linked_list - frees linked list
+ * @list: linked list
+ */
+void free_linked_list(list_t *list)
+{
+	list_t *holder;
+
+	while (list != NULL)
+	{
+		holder = list;
+		list = list->next;
+		free(holder->var);
+		free(holder);
+	}
+
 }
