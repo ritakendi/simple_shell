@@ -9,7 +9,7 @@ This repository holds all the code necessary for our custom simple shell to run.
 - Compiler: gcc
 - Style guidelines: Betty style
 
-**#Files
+# Files
 
 _realloc.c ------------------------- helper function handles reallocation
 strcat.c -------------------------- concatenates two strings
